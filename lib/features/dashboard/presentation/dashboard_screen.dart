@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../app/colors.dart';
+import '../../../../app/routes.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -15,15 +16,15 @@ class DashboardScreen extends StatelessWidget {
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.dashboard_rounded),
-            label: "Dashboard",
+            label: 'Dashboard',
           ),
           NavigationDestination(
             icon: Icon(Icons.history_rounded),
-            label: "History",
+            label: 'History',
           ),
           NavigationDestination(
             icon: Icon(Icons.settings_rounded),
-            label: "Settings",
+            label: 'Settings',
           ),
         ],
       ),
@@ -35,7 +36,7 @@ class DashboardScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Good Morning 👋",
+                'Good Morning 👋',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.grey,
@@ -45,7 +46,7 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 8),
 
               const Text(
-                "SmartSweep",
+                'SmartSweep',
                 style: TextStyle(
                   fontSize: 34,
                   fontWeight: FontWeight.bold,
@@ -55,123 +56,129 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 6),
 
               const Text(
-                "Your device is running smoothly.",
+                'Your device is running smoothly.',
                 style: TextStyle(fontSize: 16),
               ),
 
               const SizedBox(height: 30),
 
               Card(
-  child: Padding(
-    padding: const EdgeInsets.all(24),
-    child: Column(
-      children: [
-        const Text(
-          "Storage Overview",
-          style: TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Storage Overview',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
 
-        const SizedBox(height: 25),
+                      const SizedBox(height: 25),
 
-        SizedBox(
-          width: 170,
-          height: 170,
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              SizedBox(
-                width: 170,
-                height: 170,
-                child: CircularProgressIndicator(
-                  value: 0.50,
-                  strokeWidth: 12,
-                  backgroundColor: Colors.grey.shade200,
-                  color: AppColors.primary,
+                      SizedBox(
+                        width: 170,
+                        height: 170,
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            SizedBox(
+                              width: 170,
+                              height: 170,
+                              child: CircularProgressIndicator(
+                                value: 0.5,
+                                strokeWidth: 12,
+                                backgroundColor: Colors.grey.shade200,
+                                color: AppColors.primary,
+                              ),
+                            ),
+
+                            const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  '50%',
+                                  style: TextStyle(
+                                    fontSize: 34,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 4),
+                                Text('Used'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 30),
+
+                      const Row(
+                        mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '64.2 GB Used',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text('63.8 GB Free'),
+                        ],
+                      ),
+
+                      const SizedBox(height: 25),
+
+                      const StorageItem(
+                        color: Colors.green,
+                        title: 'Photos',
+                        value: '24.6 GB',
+                      ),
+
+                      const StorageItem(
+                        color: Colors.blue,
+                        title: 'Videos',
+                        value: '18.3 GB',
+                      ),
+
+                      const StorageItem(
+                        color: Colors.orange,
+                        title: 'Documents',
+                        value: '8.1 GB',
+                      ),
+
+                      const StorageItem(
+                        color: Colors.purple,
+                        title: 'Apps',
+                        value: '13.2 GB',
+                      ),
+                    ],
+                  ),
                 ),
               ),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text(
-                    "50%",
-                    style: TextStyle(
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text("Used"),
-                ],
-              ),
-            ],
-          ),
-        ),
-
-        const SizedBox(height: 30),
-
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "64.2 GB Used",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text("63.8 GB Free"),
-          ],
-        ),
-
-        const SizedBox(height: 25),
-
-        const _StorageItem(
-          color: Colors.green,
-          title: "Photos",
-          value: "24.6 GB",
-        ),
-
-        _StorageItem(
-          color: Colors.blue,
-          title: "Videos",
-          value: "18.3 GB",
-        ),
-
-        _StorageItem(
-          color: Colors.orange,
-          title: "Documents",
-          value: "8.1 GB",
-        ),
-
-        _StorageItem(
-          color: Colors.purple,
-          title: "Apps",
-          value: "13.2 GB",
-        ),
-      ],
-    ),
-  ),
-),
-
-              const SizedBox(height: 26),
+              const SizedBox(height: 25),
 
               SizedBox(
                 width: double.infinity,
                 height: 58,
                 child: FilledButton.icon(
                   icon: const Icon(Icons.bolt),
-                  label: const Text("Quick Scan"),
-                  onPressed: () {},
+                  label: const Text('Quick Scan'),
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.scan,
+                    );
+                  },
                 ),
               ),
 
-              const SizedBox(height: 34),
+              const SizedBox(height: 35),
 
               const Text(
-                "Categories",
+                'Categories',
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -183,15 +190,16 @@ class DashboardScreen extends StatelessWidget {
               GridView.count(
                 crossAxisCount: 2,
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+                physics:
+                    const NeverScrollableScrollPhysics(),
                 childAspectRatio: 1.3,
                 crossAxisSpacing: 16,
                 mainAxisSpacing: 16,
                 children: const [
-                  _CategoryCard(Icons.photo, "Photos"),
-                  _CategoryCard(Icons.video_library, "Videos"),
-                  _CategoryCard(Icons.description, "Documents"),
-                  _CategoryCard(Icons.apps, "Apps"),
+                  CategoryCard(Icons.photo, 'Photos'),
+                  CategoryCard(Icons.video_library, 'Videos'),
+                  CategoryCard(Icons.description, 'Documents'),
+                  CategoryCard(Icons.apps, 'Apps'),
                 ],
               ),
 
@@ -199,13 +207,17 @@ class DashboardScreen extends StatelessWidget {
 
               Card(
                 child: ListTile(
-                  leading: CircleAvatar(
+                  leading: const CircleAvatar(
                     backgroundColor: AppColors.primary,
-                    child: Icon(Icons.cleaning_services,
-                        color: Colors.white),
+                    child: Icon(
+                      Icons.cleaning_services,
+                      color: Colors.white,
+                    ),
                   ),
-                  title: const Text("Last Cleanup"),
-                  subtitle: const Text("Yesterday • Freed 1.8 GB"),
+                  title: const Text('Last Cleanup'),
+                  subtitle: const Text(
+                    'Yesterday • Freed 1.8 GB',
+                  ),
                 ),
               ),
 
@@ -218,11 +230,15 @@ class DashboardScreen extends StatelessWidget {
   }
 }
 
-class _CategoryCard extends StatelessWidget {
+class CategoryCard extends StatelessWidget {
   final IconData icon;
   final String title;
 
-  const _CategoryCard(this.icon, this.title);
+  const CategoryCard(
+    this.icon,
+    this.title, {
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -251,12 +267,14 @@ class _CategoryCard extends StatelessWidget {
     );
   }
 }
-class _StorageItem extends StatelessWidget {
+
+class StorageItem extends StatelessWidget {
   final Color color;
   final String title;
   final String value;
 
-  const _StorageItem({
+  const StorageItem({
+    super.key,
     required this.color,
     required this.title,
     required this.value,
@@ -265,7 +283,7 @@ class _StorageItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 9),
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
         children: [
           Container(
@@ -276,16 +294,8 @@ class _StorageItem extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           ),
-
           const SizedBox(width: 14),
-
-          Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(fontSize: 16),
-            ),
-          ),
-
+          Expanded(child: Text(title)),
           Text(
             value,
             style: const TextStyle(
