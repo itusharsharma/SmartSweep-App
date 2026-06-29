@@ -62,44 +62,99 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               Card(
-                elevation: 0,
-                child: Padding(
-                  padding: const EdgeInsets.all(22),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        "Storage Used",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
+  child: Padding(
+    padding: const EdgeInsets.all(24),
+    child: Column(
+      children: [
+        const Text(
+          "Storage Overview",
+          style: TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
 
-                      const SizedBox(height: 20),
+        const SizedBox(height: 25),
 
-                      const Text(
-                        "64.2 GB / 128 GB",
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-
-                      const SizedBox(height: 20),
-
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: const LinearProgressIndicator(
-                          value: 0.50,
-                          minHeight: 10,
-                          color: AppColors.primary,
-                        ),
-                      ),
-                    ],
-                  ),
+        SizedBox(
+          width: 170,
+          height: 170,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                width: 170,
+                height: 170,
+                child: CircularProgressIndicator(
+                  value: 0.50,
+                  strokeWidth: 12,
+                  backgroundColor: Colors.grey.shade200,
+                  color: AppColors.primary,
                 ),
               ),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    "50%",
+                    style: TextStyle(
+                      fontSize: 34,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 4),
+                  Text("Used"),
+                ],
+              ),
+            ],
+          ),
+        ),
+
+        const SizedBox(height: 30),
+
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "64.2 GB Used",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text("63.8 GB Free"),
+          ],
+        ),
+
+        const SizedBox(height: 25),
+
+        const _StorageItem(
+          color: Colors.green,
+          title: "Photos",
+          value: "24.6 GB",
+        ),
+
+        _StorageItem(
+          color: Colors.blue,
+          title: "Videos",
+          value: "18.3 GB",
+        ),
+
+        _StorageItem(
+          color: Colors.orange,
+          title: "Documents",
+          value: "8.1 GB",
+        ),
+
+        _StorageItem(
+          color: Colors.purple,
+          title: "Apps",
+          value: "13.2 GB",
+        ),
+      ],
+    ),
+  ),
+),
 
               const SizedBox(height: 26),
 
@@ -192,6 +247,52 @@ class _CategoryCard extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+class _StorageItem extends StatelessWidget {
+  final Color color;
+  final String title;
+  final String value;
+
+  const _StorageItem({
+    required this.color,
+    required this.title,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 9),
+      child: Row(
+        children: [
+          Container(
+            width: 14,
+            height: 14,
+            decoration: BoxDecoration(
+              color: color,
+              shape: BoxShape.circle,
+            ),
+          ),
+
+          const SizedBox(width: 14),
+
+          Expanded(
+            child: Text(
+              title,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ),
+
+          Text(
+            value,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }
