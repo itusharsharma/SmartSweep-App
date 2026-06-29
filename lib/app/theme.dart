@@ -1,31 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
-import 'colors.dart';
 
 class AppTheme {
-  static ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
-    colorSchemeSeed: AppColors.primary,
-    scaffoldBackgroundColor: AppColors.background,
+  static const primaryColor = Color(0xff4F46E5);
 
-    textTheme: GoogleFonts.poppinsTextTheme(),
+  static ThemeData get lightTheme {
+    return ThemeData(
+      useMaterial3: true,
+      colorSchemeSeed: primaryColor,
+      brightness: Brightness.light,
+      scaffoldBackgroundColor: const Color(0xffF8FAFC),
+      cardTheme: CardThemeData(
+        elevation: 0,
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    );
+  }
 
-    appBarTheme: const AppBarTheme(
-      centerTitle: true,
-      elevation: 0,
-    ),
-  );
-
-  static ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
-    brightness: Brightness.dark,
-    colorSchemeSeed: AppColors.primary,
-
-    scaffoldBackgroundColor: AppColors.darkBackground,
-
-    textTheme: GoogleFonts.poppinsTextTheme(
-      ThemeData.dark().textTheme,
-    ),
-  );
+  static ThemeData get darkTheme {
+    return ThemeData(
+      useMaterial3: true,
+      colorSchemeSeed: primaryColor,
+      brightness: Brightness.dark,
+    );
+  }
 }

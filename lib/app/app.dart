@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'routes.dart';
 import 'theme.dart';
 
 class SmartSweepApp extends StatelessWidget {
@@ -8,27 +9,13 @@ class SmartSweepApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-
       title: 'SmartSweep',
-
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-
       darkTheme: AppTheme.darkTheme,
-
       themeMode: ThemeMode.system,
-
-      home: const Scaffold(
-        body: Center(
-          child: Text(
-            "SmartSweep",
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
+      initialRoute: AppRoutes.splash,
+      routes: AppRoutes.routes,
     );
   }
 }
