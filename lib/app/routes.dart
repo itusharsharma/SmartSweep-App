@@ -5,6 +5,7 @@ import '../features/onboarding/presentation/onboarding_screen.dart';
 import '../features/dashboard/presentation/dashboard_screen.dart';
 import '../features/scanner/presentation/scan_screen.dart';
 import '../features/scanner/presentation/scan_results_screen.dart';
+import '../features/cleaner/presentation/cleaning_screen.dart';
 
 class AppRoutes {
   static const splash = '/';
@@ -20,5 +21,6 @@ class AppRoutes {
     dashboard: (_) => const DashboardScreen(),
     scan: (_) => const ScanScreen(),
     scanResults: (_) => const ScanResultsScreen(),
+    cleaning: (_) => const CleaningScreen(),
   };
 }
