@@ -19,11 +19,11 @@ class _ScanScreenState extends State<ScanScreen> {
   int stage = 0;
 
   final stages = [
-    "Analyzing Photos...",
-    "Scanning Videos...",
-    "Checking Documents...",
-    "Finding Junk Files...",
-    "Optimizing Results..."
+  "📷 Scanning 4,216 Photos...",
+  "🎥 Checking 382 Videos...",
+  "📄 Analyzing 842 Documents...",
+  "🗑 Removing Junk Cache...",
+  "🤖 AI Optimizing Results..."
   ];
 
   @override
@@ -31,7 +31,7 @@ class _ScanScreenState extends State<ScanScreen> {
     super.initState();
 
     Timer.periodic(
-      const Duration(milliseconds: 700),
+      const Duration(milliseconds: 900),
       (timer) {
 
         if (progress >= 1) {
@@ -79,9 +79,11 @@ class _ScanScreenState extends State<ScanScreen> {
                         width: 180,
                         height: 180,
                         child: CircularProgressIndicator(
-                          value: progress,
-                          strokeWidth: 12,
-                          color: AppColors.primary,
+                        value: progress,
+                        strokeWidth: 14,
+                        strokeCap: StrokeCap.round,
+                        backgroundColor: Colors.grey.shade300,
+                        color: AppColors.primary,
                         ),
                       ),
 
@@ -119,6 +121,50 @@ class _ScanScreenState extends State<ScanScreen> {
                     ),
                   ),
                 ),
+
+                const SizedBox(height: 30),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.timer_outlined,
+                      size: 18,
+                      color: Colors.grey.shade600,
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      "Estimated time: 5 seconds",
+                      style: TextStyle(
+                        color: Colors.grey.shade600,
+                      ),
+                    ),
+                  ],
+                ),
+                    const SizedBox(height: 25),
+
+                    Container(
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: AppColors.primary.withOpacity(.08),
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      child: const Row(
+                        children: [
+                          Icon(
+                            Icons.verified_user,
+                            color: AppColors.primary,
+                          ),
+                          SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              "SmartSweep never uploads your files. Scanning is performed locally.",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
 
               ],
             ),

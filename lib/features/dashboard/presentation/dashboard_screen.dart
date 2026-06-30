@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/colors.dart';
 import '../../../../app/routes.dart';
+// import '../../../../Core/widgets/app_card.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -84,6 +85,11 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               Card(
+                elevation: 0,
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(
@@ -227,6 +233,11 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 30),
 
               Card(
+                elevation: 0,
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
                 child: ListTile(
                   leading: const CircleAvatar(
                     backgroundColor: AppColors.primary,
@@ -266,6 +277,11 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0,
+                shadowColor: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
       child: InkWell(
         borderRadius: BorderRadius.circular(18),
         onTap: () {},
