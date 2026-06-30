@@ -3,23 +3,30 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  static const Color primary = Color(0xFF22C55E);
+  // Brand
+  static const primary = Color(0xFF22C55E);
+  static const secondary = Color(0xFF3B82F6);
 
-  static const Color secondary = Color(0xFF0EA5E9);
+  // Backgrounds
+  static const background = Color(0xFFF5F7FB);
+  static const darkBackground = Color(0xFF0F172A);
 
-  static const Color background = Color(0xFFF8FAFC);
+  // Cards
+  static const card = Color(0xFF1E1E24);
 
-  static const Color darkBackground = Color(0xFF0F172A);
+  // Text
+  static const textPrimary = Color(0xFF111827);
+  static const textSecondary = Color(0xFF6B7280);
+  static const textOnDark = Colors.white;
 
-  static const Color card = Colors.white;
+  // Status
+  static const success = Color(0xFF22C55E);
+  static const warning = Color(0xFFF59E0B);
+  static const danger = Color(0xFFEF4444);
 
-  static const Color textDark = Color(0xFF111827);
-
-  static const Color textLight = Colors.white;
-
-  static const Color danger = Color(0xFFEF4444);
-
-  static const Color warning = Color(0xFFF59E0B);
-
-  static const Color success = Color(0xFF10B981);
+  // Category Colors
+  static const photos = Color(0xFF22C55E);
+  static const videos = Color(0xFF3B82F6);
+  static const documents = Color(0xFFF59E0B);
+  static const apps = Color(0xFF8B5CF6);
 }

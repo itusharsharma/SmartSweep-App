@@ -13,23 +13,44 @@ class DashboardScreen extends StatelessWidget {
 
       bottomNavigationBar: NavigationBar(
         selectedIndex: 0,
+        onDestinationSelected: (index) {
+          switch (index) {
+            case 0:
+              break;
+            case 1:
+              Navigator.pushReplacementNamed(
+                context,
+                AppRoutes.history,
+              );
+              break;
+            case 2:
+              Navigator.pushReplacementNamed(
+                context,
+                AppRoutes.settings,
+              );
+              break;
+          }
+        },
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.dashboard_rounded),
-            label: 'Dashboard',
+            label: "Dashboard",
           ),
           NavigationDestination(
             icon: Icon(Icons.history_rounded),
-            label: 'History',
+            label: "History",
           ),
           NavigationDestination(
             icon: Icon(Icons.settings_rounded),
-            label: 'Settings',
+            label: "Settings",
           ),
         ],
       ),
 
       body: SafeArea(
+        child: Center(
+        child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 600),
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(22),
           child: Column(
@@ -43,7 +64,7 @@ class DashboardScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 8),
+              const SizedBox(height: 12),
 
               const Text(
                 'SmartSweep',
@@ -226,6 +247,8 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
       ),
+    ),
+    ),
     );
   }
 }
@@ -251,7 +274,7 @@ class CategoryCard extends StatelessWidget {
           children: [
             Icon(
               icon,
-              size: 42,
+              size: 36,
               color: AppColors.primary,
             ),
             const SizedBox(height: 12),

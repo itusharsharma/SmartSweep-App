@@ -6,6 +6,8 @@ import '../features/dashboard/presentation/dashboard_screen.dart';
 import '../features/scanner/presentation/scan_screen.dart';
 import '../features/scanner/presentation/scan_results_screen.dart';
 import '../features/cleaner/presentation/cleaning_screen.dart';
+import '../features/history/presentation/history_screen.dart';
+import '../features/settings/presentation/settings_screen.dart';
 
 class AppRoutes {
   static const splash = '/';
@@ -14,6 +16,8 @@ class AppRoutes {
   static const scan = '/scan';
   static const scanResults = '/scan-results';
   static const cleaning = '/cleaning';
+  static const history = '/history';
+  static const settings = '/settings';
 
   static final routes = <String, WidgetBuilder>{
     splash: (_) => const SplashScreen(),
@@ -22,5 +26,7 @@ class AppRoutes {
     scan: (_) => const ScanScreen(),
     scanResults: (_) => const ScanResultsScreen(),
     cleaning: (_) => const CleaningScreen(),
+    history: (_) => const HistoryScreen(),
+    settings: (_) => const SettingsScreen(),
   };
 }
