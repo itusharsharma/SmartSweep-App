@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/colors.dart';
 import '../../../../app/routes.dart';
+import '../../../../app/app.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -16,6 +17,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
+       final app = SmartSweepApp.of(context);
+      darkMode = app?.isDark ?? false;
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -35,6 +38,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 setState(() {
                   darkMode = value;
                 });
+                app?.toggleTheme(value);
               },
             ),
           ),
@@ -59,22 +63,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
           const SizedBox(height: 12),
 
-          Card(
-  child: ListTile(
-    leading: const Icon(Icons.info_outline),
-    title: const Text("About SmartSweep"),
-    subtitle: const Text("AI-powered storage cleaning assistant"),
-    trailing: const Icon(Icons.chevron_right),
-    onTap: () {
-      showAboutDialog(
-        context: context,
-        applicationName: "SmartSweep",
-        applicationVersion: "1.0",
-        applicationLegalese: "Evaluation Edition",
-      );
-    },
-  ),
-),
+            Card(
+            child: ListTile(
+              leading: const Icon(Icons.info_outline),
+              title: const Text("About SmartSweep"),
+              subtitle: const Text("AI-powered storage cleaning assistant"),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () {
+                showAboutDialog(
+                  context: context,
+                  applicationName: "SmartSweep",
+                  applicationVersion: "1.0",
+                  applicationLegalese: "Evaluation Edition",
+                );
+              },
+            ),
+          ),
 
           const SizedBox(height: 12),
 
